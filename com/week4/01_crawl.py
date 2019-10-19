@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # crawl
 def crawl(url):
     res = requests.get(url)
-    print(res)
+    # print(res)
     return res.content
 
 # parse
@@ -18,16 +18,16 @@ def parse(pageString):
     pTag = bsObj.find("p", {"class":"no_today"})
     blind = pTag.find("span", {"class":"blind"})
     return {"name":aTag.text, "code":code.text, "category":img['alt'],
-            "price":blind.text}
+            "price":int(blind.text.replace(",",""))}
 
 # ap:Kkomtle_Lounge5G pw: 20160919
 companyInfos = []
-codes = ["033180", "000660", "215600", "336370", "084990"]
+codes = ["033180", "000660", "215600", "336370", "084990",
+         "005930", "068270", "035420", "033780", "018620"
+         ]
 for code in codes:
     url = "https://finance.naver.com/item/main.nhn?code={}".format(code)
     pageString = crawl(url)
     companyinfo = parse(pageString)
     companyInfos.append(companyinfo)
     print(companyinfo)
-import json
-print(json.dumps(companyInfos))

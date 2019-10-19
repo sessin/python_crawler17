@@ -7,8 +7,11 @@ company4 = {"name": "두산솔루스", "code": "336370", "category": "코스피"
 company5 = {"name": "헬릭스미스", "code": "084990", "category": "코스닥", "price": 84300}
 
 
-print(company1)
-print(company2)
-print(company3)
-print(company4)
-print(company5)
+print(company1["name"])
+print(company2["name"])
+print(company3["name"])
+print(company4["name"])
+print(company5["name"])
+
+# 회사 이름만 출력 해보세요
+
