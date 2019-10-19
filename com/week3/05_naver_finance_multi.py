@@ -23,7 +23,7 @@ def parse(pageString):
 
     return {"price":price, "category":category}
 
-codes = ["028300", "000660"]
+codes = ["028300", "000660", "033180"]
 for code in codes:
     url = "https://finance.naver.com/item/main.nhn?code={}".format(code)
     pageString = crawl(url)
