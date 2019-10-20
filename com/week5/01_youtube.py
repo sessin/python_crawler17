@@ -19,8 +19,8 @@ def parse(pageString):
             aTag = div.find("a")
             ul = div.find("ul", {"class":"yt-lockup-meta-info"})
             metaInfoLis = ul.findAll("li")
-
-            print(byLineATag.text, aTag.text, metaInfoLis[1].text)
+            result = {"유투버":byLineATag.text, "제목":aTag.text, "조회수":metaInfoLis[1].text}
+            print(result)
         except:
             print("error")
 
